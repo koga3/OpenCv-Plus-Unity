@@ -9,4 +9,6 @@ You can create projects that use the OpenCV capabilities in mobile projects and 
 
 ## Build it Yourself
 To run it in Unity Editor or Android you have to prebuild the libraries Yourself
-bash utils/build-everything.sh --version 1.0 --ndkpath {ndkpath}
+
+>
+>  bash utils/build-everything.sh --version 1.0 --ndkpath {ndkpath}
