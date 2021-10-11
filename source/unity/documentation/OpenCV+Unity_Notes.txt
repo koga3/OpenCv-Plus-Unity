@@ -1,4 +1,4 @@
-Paper Plan Tools
+Paper Plane Tools
 paperplanetools@gmail.com
 
 OpenCV + Unity package, installation and running notes
