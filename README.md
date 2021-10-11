@@ -10,6 +10,7 @@ You can create projects that use the OpenCV capabilities in mobile projects and 
 # Documentation 
 OpenCV plus Unity original creator left the plugin some time ago and the website with documentation has been lost in internet
 There is some way to recreate the documentation by just looking on the source code but it should be somewhat group effort.
+Right now you can use original [documentation notes](https://github.com/CollegiumXR/OpenCV-plus-Unity/blob/master/source/unity/documentation/OfficialDocumentation.md)
 
 ## Build it Yourself
 To run it in Unity Editor or Android you have to prebuild the libraries Yourself
