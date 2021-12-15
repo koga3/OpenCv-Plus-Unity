@@ -13,9 +13,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: downloadNDK
-      run: ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;21.3.6528147"
-    - name: configure
-      run: ./configure
+    - name: Setup Android NDK
+      uses: nttld/setup-ndk@v1.0.6
+      with:
+        ndk-version: r21e
+        add-to-path: false
+    - run: ./build.sh
+      env:
+        ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - name: make
-      run: bash utils/build-everything.sh --version 1.0 --ndkpath {ndkpath}
+      run: bash utils/build-everything.sh --version 1.0 --ndkpath {$ANDROID_NDK_HOME}
