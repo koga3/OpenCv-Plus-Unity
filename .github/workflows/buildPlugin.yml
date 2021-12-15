@@ -21,4 +21,4 @@ jobs:
         ndk-version: r21e
         add-to-path: true
     - name: make
-      run: bash utils/build-everything.sh --version 1.0 --ndkpath {$ANDROID_NDK_HOME}
+      run: bash Utils/build-everything.sh --version 1.0 --ndkpath {$ANDROID_NDK_HOME}
