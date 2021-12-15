@@ -17,5 +17,8 @@ jobs:
       # You may pin to the exact commit or the version.
       # uses: nttld/setup-ndk@b2abc75192ee2a1ec118c8238fd86dec6d96dc43
       uses: nttld/setup-ndk@v1.0.6
+      with:
+        ndk-version: r21e
+        add-to-path: true
     - name: make
       run: bash utils/build-everything.sh --version 1.0 --ndkpath {$ANDROID_NDK_HOME}
