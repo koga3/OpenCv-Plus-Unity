@@ -19,6 +19,6 @@ jobs:
       # uses: ravinderjangra/android-ndk-toolchain-setup@88bfbd8e61af597832637fb9d2f81a7cc68d1331
       uses: ravinderjangra/android-ndk-toolchain-setup@0.2
       with:
-        arch: arm64-v8a
+        arch: arm64
     - name: make
       run: bash utils/build-everything.sh --version 1.0 --ndkpath {$ANDROID_NDK_HOME}
