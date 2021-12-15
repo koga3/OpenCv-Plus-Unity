@@ -13,8 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - uses: nttld/setup-ndk@v1.0.6
     - name: Setup Android NDK
-      uses: nttld/setup-ndk@v1.0.6
       with:
         ndk-version: r21e
         add-to-path: false
