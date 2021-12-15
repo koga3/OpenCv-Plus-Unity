@@ -1,0 +1,21 @@
+name: build unity plugin
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: downloadNDK
+      run: ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;21.3.6528147"
+    - name: configure
+      run: ./configure
+    - name: make
+      run: bash utils/build-everything.sh --version 1.0 --ndkpath {ndkpath}
