@@ -18,7 +18,7 @@ jobs:
       # uses: nttld/setup-ndk@b2abc75192ee2a1ec118c8238fd86dec6d96dc43
       uses: nttld/setup-ndk@v1.0.6
       with:
-        ndk-version: r10d
+        ndk-version: r21e
         add-to-path: true
     - name: check the dir
       run: |
