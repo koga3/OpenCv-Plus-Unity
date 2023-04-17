@@ -197,7 +197,12 @@ else
 			required eval $makecommand
 		# MSVC
 		else
-			required cmake --build . --config Release --target INSTALL
+			if [[ $makesystem == "Ninja" ]]; then
+				required ninja
+				required ninja install
+			else
+				required cmake --build . --config Release --target INSTALL
+			fi
 		fi
 	fi
 fi
