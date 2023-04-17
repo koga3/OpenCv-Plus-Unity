@@ -154,15 +154,21 @@ else
 		fi
 	fi
 
+
 	if [ ! -z "$toolchain" ]; then
 		toolchain="-DCMAKE_TOOLCHAIN_FILE=\"$toolchain\""
 	fi
 
+	if [ "$platform" = "android" ]; then
+		echo "Android !!!!!!!!!!!!!!!!!!!!!"
+		toolchain="-DCMAKE_ANDROID_NDK=C:/Users/himaj/AppData/Local/Android/Sdk/ndk"
+	fi
+	
 	# build option
 	params="$params $toolchain"
 	case $platform in
 		"windows" ) params="$params -DBUILD_WITH_STATIC_CRT=ON" ;;
-		"android" ) params="$params -DANDROID_ABI=$arch -DANDROID_STL=gnustl_static" ;;
+		"android" ) params="$params -DANDROID_ABI=$arch -DANDROID_STL=c++_static" ;;
 		"ios" )		params="$params -DIOS_ARCH=$arch -DCMAKE_XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET=\"7.0\"" ;;
 		"macos" )	params="$params -DCMAKE_OSX_ARCHITECTURES=\"$arch\" -DCMAKE_OSX_DEPLOYMENT_TARGET=\"10.10\"" ;;
 	esac

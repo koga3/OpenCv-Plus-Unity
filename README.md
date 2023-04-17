@@ -16,4 +16,4 @@ Right now you can use original [documentation notes](https://github.com/Collegiu
 To run it in Unity Editor or Android you have to prebuild the libraries Yourself
 
 >
->  bash utils/build-everything.sh --version 1.0 --ndkpath {ndkpath}
+>  bash utils/build-everything.sh --version 1.0 --ndkpath "C:/Users/himaj/AppData/Local/Android/Sdk/ndk/23.1.7779620"
