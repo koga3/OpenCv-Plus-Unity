@@ -161,7 +161,7 @@ else
 
 	if [ "$platform" = "android" ]; then
 		echo "Android !!!!!!!!!!!!!!!!!!!!!"
-		toolchain="-DCMAKE_ANDROID_NDK=C:/Users/himaj/AppData/Local/Android/Sdk/ndk"
+		toolchain="-DCMAKE_ANDROID_NDK=/home/s-koga/appdata/Android/Sdk/ndk/23.1.7779620/ -DCMAKE_TOOLCHAIN_FILE=/home/s-koga/appdata/Android/Sdk/ndk/23.1.7779620/build/cmake/android.toolchain.cmake -DANDROID_NDK=/home/s-koga/appdata/Android/Sdk/ndk/23.1.7779620"
 	fi
 	
 	# build option

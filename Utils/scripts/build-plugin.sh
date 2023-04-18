@@ -170,10 +170,76 @@ fi
 
 # Those modules can be turned off should we have no need for video/capture support
 # -DWITH_AVFOUNDATION=OFF -DWITH_DSHOW=OFF -DWITH_VFW=OFF -DWITH_FFMPEG=OFF
-opencv_dependencies="-DWITH_VTK=OFF -DWITH_1394=OFF -DWITH_GSTREAMER=OFF -DWITH_V4L=OFF -DWITH_FFMPEG=OFF -DWITH_QT=OFF -DWITH_GTK=OFF -DWITH_GPHOTO2=OFF -DWITH_MATLAB=OFF -DWITH_TIFF=OFF -DWITH_JASPER=OFF -DWITH_JPEG=OFF -DWITH_PNG=OFF -DWITH_CUDA=OFF -DWITH_OPENEXR=OFF"
-opencv_modules="-DBUILD_opencv_hdf=OFF -DBUILD_OPENCV_JAVA=OFF -DBUILD_OPENCV_PYTHON=OFF -DBUILD_opencv_python2=OFF -DBUILD_opencv_python3=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DBUILD_opencv_apps=OFF -DBUILD_ANDROID_EXAMPLES=OFF -DBUILD_DOCS=OFF -DBUILD_opencv_core=ON -DBUILD_opencv_imgproc=ON -DBUILD_opencv_flann=OFF -DBUILD_opencv_ml=OFF -DBUILD_opencv_photo=OFF -DBUILD_opencv_video=OFF -DBUILD_opencv_imgcodecs=OFF -DBUILD_opencv_shape=OFF -DBUILD_opencv_videoio=OFF -DBUILD_opencv_highgui=OFF -DBUILD_opencv_objdetect=OFF -DBUILD_opencv_superres=OFF"
-opencv_options="$opencv_dependencies $opencv_modules $opencv_issue -DBUILD_EXAMPLES=OFF -DBUILD_SHARED_LIBS=OFF -DBUILD_WITH_DEBUG_INFO=OFF -Wno-deprecated"
-# -DCMAKE_TRY_COMPILE_PLATFORM_VARIABLES=CMAKE_WARN_DEPRECATED"
+opencv_dependencies="
+    -DWITH_VTK=OFF \
+    -DWITH_1394=OFF \
+    -DWITH_GSTREAMER=OFF \
+    -DWITH_V4L=OFF \
+    -DWITH_AVFOUNDATION=OFF \
+    -DWITH_DSHOW=OFF \
+    -DWITH_VFW=OFF \
+    -DWITH_FFMPEG=OFF \
+    -DWITH_QT=OFF \
+    -DWITH_GTK=OFF \
+    -DWITH_GPHOTO2=OFF \
+    -DWITH_MATLAB=OFF \
+    -DWITH_TIFF=OFF \
+    -DWITH_JASPER=OFF \
+    -DWITH_JPEG=OFF \
+    -DWITH_PNG=OFF \
+    -DWITH_CUDA=OFF \
+    -DWITH_OPENEXR=OFF \
+    -DWITH_WEBP=OFF \
+    -DWITH_HDR=OFF \
+    -DWITH_SUNRASTER=OFF \
+    -DWITH_PXM=OFF \
+    -Dcustom_hal=OFF \
+    -DWITH_PROTOBUF=OFF \
+    -DWITH_ADE=OFF \
+    -DBUILD_QUIRC=OFF \
+    -DQUIRC=OFF \
+    -DWITH_QUIRC=OFF"
+opencv_modules="
+    -DBUILD_opencv_hdf=OFF \
+    -DBUILD_OPENCV_JAVA=OFF \
+    -DBUILD_OPENCV_PYTHON=OFF \
+    -DBUILD_opencv_python2=OFF \
+    -DBUILD_opencv_python3=OFF \
+    -DBUILD_TESTS=OFF \
+    -DBUILD_PERF_TESTS=OFF \
+    -DBUILD_opencv_apps=OFF \
+    -DBUILD_ANDROID_EXAMPLES=OFF \
+    -DBUILD_DOCS=OFF \
+    -DBUILD_opencv_core=ON \
+    -DBUILD_opencv_imgproc=ON \
+    -DBUILD_opencv_flann=OFF \
+    -DBUILD_opencv_ml=OFF \
+    -DBUILD_opencv_photo=OFF \
+    -DBUILD_opencv_video=OFF \
+    -DBUILD_opencv_imgcodecs=OFF \
+    -DBUILD_opencv_shape=OFF \
+    -DBUILD_opencv_videoio=OFF \
+    -DBUILD_opencv_highgui=OFF \
+    -DBUILD_opencv_objdetect=OFF \
+    -DBUILD_opencv_superres=OFF \
+    -DBUILD_opencv_dnn=OFF \
+    -DBUILD_opencv_features2d=OFF \
+    -DBUILD_opencv_3rdparty=OFF \
+    -DBUILD_opencv_gapi=OFF"
+opencv_options="$opencv_dependencies $opencv_modules $opencv_issue 
+    -DBUILD_EXAMPLES=OFF \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DBUILD_WITH_DEBUG_INFO=OFF \
+    -Wno-deprecated"
+# -DCMAKE_TRY_COMPILE_PLATFORM_VARIABLES=CMAKE_WARN_DEPRECATED \"
+opencv_android="
+    -DBUILD_JAVA=OFF \
+    -DCMAKE_TOOLCHAIN_FILE=\home/s-koga/appdata/Android/Sdk/ndk/23.1.7779620/build/cmake/android.toolchain.cmake \
+    -DANDROID_NDK=\home/s-koga/appdata/Android/Sdk/ndk/23.1.7779620"
+
+if [ "$platform" == "android" ]; then
+    opencv_options="$opencv_options $opencv_android"
+fi
 
 required compile_library "opencv" "$version_opencv" "" "$opencv_options" "$lib_compile" "opencv_output"
 
@@ -205,7 +271,7 @@ echo ""
 # *****************************************
 # SharpExtern
 # *****************************************
-sharpextern_options="-Wno-deprecated -DCMAKE_TRY_COMPILE_PLATFORM_VARIABLES=CMAKE_WARN_DEPRECATED -DCMAKE_PREFIX_PATH=\"$TEMP/$platform/$arch/libs\""
+sharpextern_options="-Wno-deprecated -DCMAKE_TRY_COMPILE_PLATFORM_VARIABLES=CMAKE_WARN_DEPRECATED -DCMAKE_PREFIX_PATH=\"$TEMP/$platform/$arch/libs/opencv-4.7.0\""
 
 suffix=""
 if [ $type == "trial" ]; then
