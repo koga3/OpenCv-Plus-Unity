@@ -861,118 +861,118 @@ CVAPI(void) vector_Mat_delete(vector<cv::Mat>* vec)
 // }
 // #pragma endregion
 
-#pragma region cv::ml::DTrees::Split
-CVAPI(vector<cv::ml::DTrees::Split>*) vector_DTrees_Split_new1()
-{
-	return new vector<cv::ml::DTrees::Split>;
-}
-CVAPI(vector<cv::ml::DTrees::Split>*) vector_DTrees_Split_new2(size_t size)
-{
-	return new vector<cv::ml::DTrees::Split>(size);
-}
-CVAPI(vector<cv::ml::DTrees::Split>*) vector_DTrees_Split_new3(cv::ml::DTrees::Split *data, size_t dataLength)
-{
-	return new vector<cv::ml::DTrees::Split>(data, data + dataLength);
-}
-CVAPI(size_t) vector_DTrees_Split_getSize(vector<cv::ml::DTrees::Split> *vec)
-{
-	return vec->size();
-}
-CVAPI(cv::ml::DTrees::Split*) vector_DTrees_Split_getPointer(vector<cv::ml::DTrees::Split> *vec)
-{
-	return vec->empty()? nullptr : &(vec->at(0));
-}
-CVAPI(void) vector_DTrees_Split_delete(vector<cv::ml::DTrees::Split> *vec)
-{
-	delete vec;
-}
-#pragma endregion
+// #pragma region cv::ml::DTrees::Split
+// CVAPI(vector<cv::ml::DTrees::Split>*) vector_DTrees_Split_new1()
+// {
+// 	return new vector<cv::ml::DTrees::Split>;
+// }
+// CVAPI(vector<cv::ml::DTrees::Split>*) vector_DTrees_Split_new2(size_t size)
+// {
+// 	return new vector<cv::ml::DTrees::Split>(size);
+// }
+// CVAPI(vector<cv::ml::DTrees::Split>*) vector_DTrees_Split_new3(cv::ml::DTrees::Split *data, size_t dataLength)
+// {
+// 	return new vector<cv::ml::DTrees::Split>(data, data + dataLength);
+// }
+// CVAPI(size_t) vector_DTrees_Split_getSize(vector<cv::ml::DTrees::Split> *vec)
+// {
+// 	return vec->size();
+// }
+// CVAPI(cv::ml::DTrees::Split*) vector_DTrees_Split_getPointer(vector<cv::ml::DTrees::Split> *vec)
+// {
+// 	return vec->empty()? nullptr : &(vec->at(0));
+// }
+// CVAPI(void) vector_DTrees_Split_delete(vector<cv::ml::DTrees::Split> *vec)
+// {
+// 	delete vec;
+// }
+// #pragma endregion
 
 //------------------------------------------------------------------------------------------------------
 // cv::text::ERStat
 //------------------------------------------------------------------------------------------------------
-CVAPI(vector<cv::text::ERStat>*) vector_ERStat_new1()
-{
-	return new std::vector<cv::text::ERStat>();
-}
+// CVAPI(vector<cv::text::ERStat>*) vector_ERStat_new1()
+// {
+// 	return new std::vector<cv::text::ERStat>();
+// }
 
-CVAPI(vector<cv::text::ERStat>*) vector_ERStat_new2(cv::text::ERStat** data, size_t dataLength)
-{
-	auto vec = new std::vector<cv::text::ERStat>();
-	vec->resize(dataLength);
-	for (size_t i = 0; i < dataLength; ++i)
-		(*vec)[i] = *data[i];
+// CVAPI(vector<cv::text::ERStat>*) vector_ERStat_new2(cv::text::ERStat** data, size_t dataLength)
+// {
+// 	auto vec = new std::vector<cv::text::ERStat>();
+// 	vec->resize(dataLength);
+// 	for (size_t i = 0; i < dataLength; ++i)
+// 		(*vec)[i] = *data[i];
 
-	return vec;
-}
+// 	return vec;
+// }
 
-CVAPI(size_t) vector_ERStat_getSize(vector<cv::text::ERStat>* vec)
-{
-	return vec->size();
-}
+// CVAPI(size_t) vector_ERStat_getSize(vector<cv::text::ERStat>* vec)
+// {
+// 	return vec->size();
+// }
 
-CVAPI(cv::text::ERStat*) vector_ERStat_getPointer(vector<cv::text::ERStat>* vec)
-{
-	return vec->empty()? nullptr : &(vec->at(0));
-}
+// CVAPI(cv::text::ERStat*) vector_ERStat_getPointer(vector<cv::text::ERStat>* vec)
+// {
+// 	return vec->empty()? nullptr : &(vec->at(0));
+// }
 
-CVAPI(void) vector_ERStat_getElement(vector<cv::text::ERStat>* vec, int index, cv::text::ERStat* output)
-{
-	*output = vec->at(index);
-}
+// CVAPI(void) vector_ERStat_getElement(vector<cv::text::ERStat>* vec, int index, cv::text::ERStat* output)
+// {
+// 	*output = vec->at(index);
+// }
 
-CVAPI(void) vector_ERStat_delete(vector<cv::text::ERStat>* vec)
-{
-	delete vec;
-}
+// CVAPI(void) vector_ERStat_delete(vector<cv::text::ERStat>* vec)
+// {
+// 	delete vec;
+// }
 
 //------------------------------------------------------------------------------------------------------
 // std::vector<cv::text::ERStat>
 //------------------------------------------------------------------------------------------------------
-CVAPI(std::vector<std::vector<cv::text::ERStat>>*) vector_vector_ERStat_new1()
-{
-	return new std::vector<std::vector<cv::text::ERStat>>();
-}
+// CVAPI(std::vector<std::vector<cv::text::ERStat>>*) vector_vector_ERStat_new1()
+// {
+// 	return new std::vector<std::vector<cv::text::ERStat>>();
+// }
 
-CVAPI(std::vector<std::vector<cv::text::ERStat>>*) vector_vector_ERStat_new2(size_t size1, size_t* sizes2, cv::text::ERStat** src)
-{
-	auto* vector = new std::vector<std::vector<cv::text::ERStat>>();
+// CVAPI(std::vector<std::vector<cv::text::ERStat>>*) vector_vector_ERStat_new2(size_t size1, size_t* sizes2, cv::text::ERStat** src)
+// {
+// 	auto* vector = new std::vector<std::vector<cv::text::ERStat>>();
 
-	int fetchIndex = 0;
-	vector->resize(size1);
-	for (size_t i = 0; i < size1; ++i)
-	{
-		auto& elem = vector->at(i);
+// 	int fetchIndex = 0;
+// 	vector->resize(size1);
+// 	for (size_t i = 0; i < size1; ++i)
+// 	{
+// 		auto& elem = vector->at(i);
 
-		// ERStat contains complex fields, simple memory-copy should not be used
-		elem.resize(sizes2[i]);
-		for (size_t j = 0; j < elem.size(); ++j, ++fetchIndex)
-			elem[j] = *src[fetchIndex];
-	}
+// 		// ERStat contains complex fields, simple memory-copy should not be used
+// 		elem.resize(sizes2[i]);
+// 		for (size_t j = 0; j < elem.size(); ++j, ++fetchIndex)
+// 			elem[j] = *src[fetchIndex];
+// 	}
 
-	return vector;
-}
+// 	return vector;
+// }
 
-CVAPI(size_t) vector_vector_ERStat_getSize1(std::vector<std::vector<cv::text::ERStat>>* vec)
-{
-	return vec->size();
-}
+// CVAPI(size_t) vector_vector_ERStat_getSize1(std::vector<std::vector<cv::text::ERStat>>* vec)
+// {
+// 	return vec->size();
+// }
 
-CVAPI(void) vector_vector_ERStat_getSize2(std::vector<std::vector<cv::text::ERStat>>* vec, size_t* sizes)
-{
-	for (size_t i = 0; i < vec->size(); i++)
-		sizes[i] = vec->at(i).size();
-}
+// CVAPI(void) vector_vector_ERStat_getSize2(std::vector<std::vector<cv::text::ERStat>>* vec, size_t* sizes)
+// {
+// 	for (size_t i = 0; i < vec->size(); i++)
+// 		sizes[i] = vec->at(i).size();
+// }
 
-CVAPI(void) vector_vector_ERStat_getElement(std::vector<std::vector<cv::text::ERStat>>* vec, int i, int j, cv::text::ERStat* output)
-{
-	*output = (*vec)[i][j];
-}
+// CVAPI(void) vector_vector_ERStat_getElement(std::vector<std::vector<cv::text::ERStat>>* vec, int i, int j, cv::text::ERStat* output)
+// {
+// 	*output = (*vec)[i][j];
+// }
 
-CVAPI(void) vector_vector_ERStat_delete(std::vector<std::vector<cv::text::ERStat>>* vec)
-{
-	delete vec;
-}
+// CVAPI(void) vector_vector_ERStat_delete(std::vector<std::vector<cv::text::ERStat>>* vec)
+// {
+// 	delete vec;
+// }
 
 //------------------------------------------------------------------------------------------------------
 // std::vector<cv::Vec2i>

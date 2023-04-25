@@ -16,10 +16,10 @@ CVAPI(cv::FileStorage*) core_FileStorage_new2(const char *source, int flags, con
         encodingStr = std::string(encoding);
     return new cv::FileStorage(source, flags, encodingStr);
 }
-CVAPI(cv::FileStorage*) core_FileStorage_newFromLegacy(CvFileStorage *fs)
-{
-    return new cv::FileStorage(fs);
-}
+// CVAPI(cv::FileStorage*) core_FileStorage_newFromLegacy(CvFileStorage *fs)
+// {
+//     return new cv::FileStorage(fs);
+// }
 
 CVAPI(void) core_FileStorage_delete(cv::FileStorage *obj)
 {
@@ -65,18 +65,18 @@ CVAPI(cv::FileNode*) core_FileStorage_indexer(cv::FileStorage *obj, const char *
     return new cv::FileNode(node);
 }
 
-CVAPI(CvFileStorage*) core_FileStorage_toLegacy(cv::FileStorage *obj)
-{
-    return obj->fs.get();
-}
-CVAPI(void) core_FileStorage_writeRaw(cv::FileStorage *obj, const char *fmt, const uchar *vec, size_t len)
-{
-    obj->writeRaw(fmt, vec, len);
-}
-CVAPI(void) core_FileStorage_writeObj(cv::FileStorage *obj, const char *name, const void *value)
-{
-    obj->writeObj(name, value);
-}
+// CVAPI(CvFileStorage*) core_FileStorage_toLegacy(cv::FileStorage *obj)
+// {
+//     return obj->fs.get();
+// }
+// CVAPI(void) core_FileStorage_writeRaw(cv::FileStorage *obj, const char *fmt, const uchar *vec, size_t len)
+// {
+//     obj->writeRaw(fmt, vec, len);
+// }
+// CVAPI(void) core_FileStorage_writeObj(cv::FileStorage *obj, const char *name, const void *value)
+// {
+//     obj->writeObj(name, value);
+// }
 
 CVAPI(void) core_FileStorage_getDefaultObjectName(const char *filename, char *buf, int bufLength)
 {
@@ -88,12 +88,12 @@ CVAPI(const char*) core_FileStorage_elname(cv::FileStorage *obj)
 {
 	return obj->elname.c_str();
 }
-CVAPI(const char*) core_FileStorage_structs(cv::FileStorage *obj, size_t* resultLength)
-{
-    std::vector<char> &structs = obj->structs;
-    *resultLength = structs.size();
-    return &(structs[0]);
-}
+// CVAPI(const char*) core_FileStorage_structs(cv::FileStorage *obj, size_t* resultLength)
+// {
+//     std::vector<char> &structs = obj->structs;
+//     *resultLength = structs.size();
+//     return &(structs[0]);
+// }
 CVAPI(int) core_FileStorage_state(cv::FileStorage *obj)
 {
     return obj->state;
@@ -157,10 +157,10 @@ CVAPI(cv::FileNode*) core_FileNode_new1()
 {
     return new cv::FileNode();
 }
-CVAPI(cv::FileNode*) core_FileNode_new2(CvFileStorage* fs, CvFileNode* node)
-{
-    return new cv::FileNode(fs, node);
-}
+// CVAPI(cv::FileNode*) core_FileNode_new2(CvFileStorage* fs, CvFileNode* node)
+// {
+//     return new cv::FileNode(fs, node);
+// }
 CVAPI(cv::FileNode*) core_FileNode_new3(cv::FileNode *node)
 {
     return new cv::FileNode(*node);
@@ -255,10 +255,10 @@ CVAPI(void) core_FileNode_readRaw(cv::FileNode *obj, const char *fmt, uchar* vec
 {
     obj->readRaw(fmt, vec, len);
 }
-CVAPI(void*) core_FileNode_readObj(cv::FileNode *obj)
-{
-    return obj->readObj();
-}
+// CVAPI(void*) core_FileNode_readObj(cv::FileNode *obj)
+// {
+//     return obj->readObj();
+// }
 
 CVAPI(void) core_FileNode_read_int(cv::FileNode *node, int *value, int default_value)
 {

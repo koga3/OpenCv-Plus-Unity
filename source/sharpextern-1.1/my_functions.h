@@ -60,14 +60,14 @@ static cv::SparseMat entity(cv::SparseMat *obj)
 {
 	return (obj != NULL) ? *obj : cv::SparseMat();
 }
-static cv::cuda::GpuMat entity(cv::cuda::GpuMat *obj)
-{
-	return (obj != NULL) ? *obj : cv::cuda::GpuMat();
-}
-static cv::cuda::Stream entity(cv::cuda::Stream *obj)
-{
-	return (obj != NULL) ? *obj : cv::cuda::Stream::Null();
-}
+// static cv::cuda::GpuMat entity(cv::cuda::GpuMat *obj)
+// {
+// 	return (obj != NULL) ? *obj : cv::cuda::GpuMat();
+// }
+// static cv::cuda::Stream entity(cv::cuda::Stream *obj)
+// {
+// 	return (obj != NULL) ? *obj : cv::cuda::Stream::Null();
+// }
 
 template <typename T>
 static cv::Ptr<T> *clone(const cv::Ptr<T> &ptr)
@@ -88,13 +88,6 @@ static void copyString(const std::string &src, char *dst, int dstLength)
         std::strncpy(dst, "", dstLength - 1);
     else
         std::strncpy(dst, src.c_str(), dstLength - 1);
-}
-static void copyString(const cv::String &src, char *dst, int dstLength)
-{
-	if (src.empty())
-		std::strncpy(dst, "", dstLength - 1);
-	else
-		std::strncpy(dst, src.c_str(), dstLength - 1);
 }
 
 template <typename T>

@@ -431,24 +431,24 @@ CVAPI(cv::MatExpr*) core_Mat_zeros2(int ndims, const int *sz, int type) // Not d
 	return NULL; 
 }
 
-CVAPI(char*) core_Mat_dump(cv::Mat *self, const char *format)
-{
-	std::stringstream s;	
-	if (format == NULL)
-		s << *self;
-	else
-		s << cv::format(*self, 0);
-	std::string str = s.str();
+// CVAPI(char*) core_Mat_dump(cv::Mat *self, const char *format)
+// {
+// 	std::stringstream s;	
+// 	if (format == NULL)
+// 		s << *self;
+// 	else
+// 		s << cv::format(*self, 0);
+// 	std::string str = s.str();
 
-	const char *src = str.c_str();
-	char *dst = new char[str.length() + 1];
-	std::memcpy(dst, src, str.length() + 1);
-	return dst;
-}
-CVAPI(void) core_Mat_dump_delete(char *buf)
-{
-	delete[] buf;
-}
+// 	const char *src = str.c_str();
+// 	char *dst = new char[str.length() + 1];
+// 	std::memcpy(dst, src, str.length() + 1);
+// 	return dst;
+// }
+// CVAPI(void) core_Mat_dump_delete(char *buf)
+// {
+// 	delete[] buf;
+// }
 
 CVAPI(uchar*) core_Mat_ptr1d(cv::Mat *self, int i0)
 {
@@ -501,37 +501,37 @@ CVAPI(void) core_Mat_assignment_FromScalar(cv::Mat *self, MyCvScalar scalar)
 	*self = cpp(scalar);
 }
 
-CVAPI(void) core_Mat_IplImage(cv::Mat *self, IplImage *outImage)
-{
-	*outImage = IplImage();
-	IplImage inImage = (IplImage)(*self);
-	memcpy(outImage, &inImage, sizeof(IplImage));
-}
-CVAPI(void) core_Mat_IplImage_alignment(cv::Mat *self, IplImage **outImage)
-{
-	// キャストの結果を参考に使う.
-    // メモリ管理の問題から、直接は使わない.
-    IplImage dummy = (IplImage)(*self);
-    // alignmentをそろえる
-    IplImage *img = cvCreateImage(cvSize(dummy.width, dummy.height), dummy.depth, dummy.nChannels);
-    int height = img->height;
-    size_t sstep = self->step;
-	size_t dstep = img->widthStep;
-    for (int i = 0; i < height; ++i)
-    {
-        char *dp = img->imageData + (dstep * i);
-        char *sp = (char*)(self->data) + (sstep * i);
-        memcpy(dp, sp, sstep);
-    }
-    *outImage = img;
-}
+// CVAPI(void) core_Mat_IplImage(cv::Mat *self, IplImage *outImage)
+// {
+// 	*outImage = IplImage();
+// 	IplImage inImage = (IplImage)(*self);
+// 	memcpy(outImage, &inImage, sizeof(IplImage));
+// }
+// CVAPI(void) core_Mat_IplImage_alignment(cv::Mat *self, IplImage **outImage)
+// {
+// 	// キャストの結果を参考に使う.
+//     // メモリ管理の問題から、直接は使わない.
+//     IplImage dummy = (IplImage)(*self);
+//     // alignmentをそろえる
+//     IplImage *img = cvCreateImage(cvSize(dummy.width, dummy.height), dummy.depth, dummy.nChannels);
+//     int height = img->height;
+//     size_t sstep = self->step;
+// 	size_t dstep = img->widthStep;
+//     for (int i = 0; i < height; ++i)
+//     {
+//         char *dp = img->imageData + (dstep * i);
+//         char *sp = (char*)(self->data) + (sstep * i);
+//         memcpy(dp, sp, sstep);
+//     }
+//     *outImage = img;
+// }
 
-CVAPI(void) core_Mat_CvMat(cv::Mat *self, CvMat *outMat)
-{
-	*outMat = CvMat();
-	CvMat inMat = (CvMat)(*self);
-	memcpy(outMat, &inMat, sizeof(CvMat));
-}
+// CVAPI(void) core_Mat_CvMat(cv::Mat *self, CvMat *outMat)
+// {
+// 	*outMat = CvMat();
+// 	CvMat inMat = (CvMat)(*self);
+// 	memcpy(outMat, &inMat, sizeof(CvMat));
+// }
 
 CVAPI(cv::MatExpr*) core_Mat_operatorUnaryMinus(cv::Mat *mat)
 {

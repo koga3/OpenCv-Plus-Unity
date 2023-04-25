@@ -207,13 +207,13 @@ CVAPI(void) core_minMaxLoc1(cv::_InputArray *src, double *minVal, double *maxVal
 	cv::minMaxLoc(*src, minVal, maxVal);
 }
 CVAPI(void) core_minMaxLoc2(cv::_InputArray *src, double *minVal, double *maxVal,
-	CvPoint *minLoc, CvPoint *maxLoc, cv::_InputArray *mask)
+	MyCvPoint *minLoc, MyCvPoint *maxLoc, cv::_InputArray *mask)
 {
 	cv::InputArray maskVal = entity(mask);
 	cv::Point minLoc0, maxLoc0;
 	cv::minMaxLoc(*src, minVal, maxVal, &minLoc0, &maxLoc0, maskVal);
-	*minLoc = minLoc0;
-	*maxLoc = maxLoc0;
+	*minLoc = c(minLoc0);
+	*maxLoc = c(maxLoc0);
 }
 CVAPI(void) core_minMaxIdx1(cv::_InputArray *src, double *minVal, double *maxVal)
 {
@@ -405,11 +405,11 @@ CVAPI(void) core_magnitude_Mat(cv::_InputArray *x, cv::_InputArray *y, cv::_Outp
 {
 	cv::magnitude(*x, *y, *magnitude);
 }
-CVAPI(int) core_checkRange(cv::_InputArray *a, int quiet, CvPoint *pos, double minVal, double maxVal)
+CVAPI(int) core_checkRange(cv::_InputArray *a, int quiet, MyCvPoint *pos, double minVal, double maxVal)
 {
 	cv::Point pos0;
 	int ret = cv::checkRange(*a, quiet != 0, &pos0, minVal, maxVal);
-	*pos = pos0;
+	*pos = c(pos0);
 	return ret;
 }
 CVAPI(void) core_patchNaNs(cv::_InputOutputArray *a, double val)

@@ -20,28 +20,28 @@ CVAPI(void) imgproc_Subdiv2D_initDelaunay(cv::Subdiv2D *obj, CvRect rect)
 {
 	obj->initDelaunay(rect);
 }
-CVAPI(int) imgproc_Subdiv2D_insert1(cv::Subdiv2D *obj, CvPoint2D32f pt)
+CVAPI(int) imgproc_Subdiv2D_insert1(cv::Subdiv2D *obj, MyCvPoint2D32f pt)
 {
-	return obj->insert(pt);
+	return obj->insert(cpp(pt));
 }
-CVAPI(void) imgproc_Subdiv2D_insert2(cv::Subdiv2D *obj, CvPoint2D32f *ptArray, int length)
+CVAPI(void) imgproc_Subdiv2D_insert2(cv::Subdiv2D *obj, MyCvPoint2D32f *ptArray, int length)
 {
 	std::vector<cv::Point2f> ptvec(length);
 	for (int i = 0; i < length; i++)
 	{
-		ptvec[i] = ptArray[i];
+		ptvec[i] = cpp(ptArray[i]);
 	}
 	obj->insert(ptvec);
 }
-CVAPI(int) imgproc_Subdiv2D_locate(cv::Subdiv2D *obj, CvPoint2D32f pt, int *edge, int *vertex)
+CVAPI(int) imgproc_Subdiv2D_locate(cv::Subdiv2D *obj, MyCvPoint2D32f pt, int *edge, int *vertex)
 {
-	return obj->locate(pt, *edge, *vertex);
+	return obj->locate(cpp(pt), *edge, *vertex);
 }
-CVAPI(int) imgproc_Subdiv2D_findNearest(cv::Subdiv2D *obj, CvPoint2D32f pt, CvPoint2D32f* nearestPt)
+CVAPI(int) imgproc_Subdiv2D_findNearest(cv::Subdiv2D *obj, MyCvPoint2D32f pt, MyCvPoint2D32f* nearestPt)
 {
 	cv::Point2f nearestPt0;
-	int ret = obj->findNearest(pt, &nearestPt0);
-	*nearestPt = nearestPt0;
+	int ret = obj->findNearest(cpp(pt), &nearestPt0);
+	*nearestPt = c(nearestPt0);
 	return ret;
 }
 CVAPI(void) imgproc_Subdiv2D_getEdgeList(cv::Subdiv2D *obj, std::vector<cv::Vec4f> **edgeList)
@@ -85,18 +85,18 @@ CVAPI(int) imgproc_Subdiv2D_symEdge(cv::Subdiv2D *obj, int edge)
 {
 	return obj->symEdge(edge);
 }
-CVAPI(int) imgproc_Subdiv2D_edgeOrg(cv::Subdiv2D *obj, int edge, CvPoint2D32f *orgpt)
+CVAPI(int) imgproc_Subdiv2D_edgeOrg(cv::Subdiv2D *obj, int edge, MyCvPoint2D32f *orgpt)
 {
 	cv::Point2f orgpt0;
 	int ret = obj->edgeOrg(edge, &orgpt0);
-	*orgpt = orgpt0;
+	*orgpt = c(orgpt0);
 	return ret;
 }
-CVAPI(int) imgproc_Subdiv2D_edgeDst(cv::Subdiv2D *obj, int edge, CvPoint2D32f *dstpt)
+CVAPI(int) imgproc_Subdiv2D_edgeDst(cv::Subdiv2D *obj, int edge, MyCvPoint2D32f *dstpt)
 {
 	cv::Point2f dstpt0;
 	int ret = obj->edgeDst(edge, &dstpt0);
-	*dstpt = dstpt0;
+	*dstpt = c(dstpt0);
 	return ret;
 }
 
