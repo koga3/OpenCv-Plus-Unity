@@ -150,7 +150,9 @@ make_project_symlink()
 	if [ "$type" != "desktop" ]; then
 		required make_plugin_symlink "$BINARYDIR" "$PLUGINSDIR" "iOS"
 		required make_plugin_symlink "$BINARYDIR" "$PLUGINSDIR" "Android/armeabi-v7a"
+		required make_plugin_symlink "$BINARYDIR" "$PLUGINSDIR" "Android/arm64-v8a"
 		required make_plugin_symlink "$BINARYDIR" "$PLUGINSDIR" "Android/x86"
+		required make_plugin_symlink "$BINARYDIR" "$PLUGINSDIR" "Android/x86_64"
 	fi
 }
 

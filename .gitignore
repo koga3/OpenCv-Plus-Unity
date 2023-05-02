@@ -16,7 +16,6 @@ Unity/obj
 
 # build
 Temp
-Bin
 build/*
 release/*
 

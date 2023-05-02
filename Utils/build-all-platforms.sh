@@ -147,7 +147,7 @@ if [ ${targets[0]} -eq 1 ]; then
 fi
 
 if [ ${targets[1]} -eq 1 ]; then
-	echo "	- Android { armeabi-v7a, x86 }, NDK path=$ndkpath"
+	echo "	- Android { armeabi-v7a, arm64-v8a, x86, x86_64 }, NDK path=$ndkpath"
 fi
 
 if [ ${targets[2]} -eq 1 ]; then
@@ -183,8 +183,12 @@ if [ ${targets[1]} -eq 1 ]; then
 
 	# armv7
 	required bash ./scripts/build-plugin.sh --type "$type" --platform android --version $version_plugin --arch armeabi-v7a --makesys "$nixmakesys" $rebuild_option $wrapper_only
+	# armv64
+	required bash ./scripts/build-plugin.sh --type "$type" --platform android --version $version_plugin --arch arm64-v8a --makesys "$nixmakesys" $rebuild_option $wrapper_only
 	# x86
 	required bash ./scripts/build-plugin.sh --type "$type" --platform android --version $version_plugin --arch x86 --makesys "$nixmakesys" $rebuild_option $wrapper_only
+	# x86_64
+	required bash ./scripts/build-plugin.sh --type "$type" --platform android --version $version_plugin --arch x86_64 --makesys "$nixmakesys" $rebuild_option $wrapper_only
 fi
 
 # *****************************************
