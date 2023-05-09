@@ -42,7 +42,6 @@ opencv/opencv-*/platforms/ios/build_framework.pyc
 # appeared after building macos bundle with build-all.sh
 source/opencv-*/modules/python/src2/hdr_parser.pyc
 
-source/opencv-*
 CMakeFiles/*
 Unity/OpenCV+Unity.Trial/Assets/OpenCV+Unity/Plugins/
 memo
