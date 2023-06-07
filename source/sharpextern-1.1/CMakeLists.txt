@@ -44,6 +44,7 @@ set(OPENCVSHARP_FILES
 	imgproc.cpp
 	std_vector.cpp
 	utils.cpp
+	objdetect.cpp
 )
 
 if(OpenCV_FOUND)

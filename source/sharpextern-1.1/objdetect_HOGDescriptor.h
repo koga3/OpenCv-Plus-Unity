@@ -12,12 +12,12 @@ CVAPI(cv::HOGDescriptor*) objdetect_HOGDescriptor_new1()
 {
 	return new cv::HOGDescriptor();
 }
-CVAPI(cv::HOGDescriptor*) objdetect_HOGDescriptor_new2(CvSize winSize, CvSize blockSize, CvSize blockStride, CvSize cellSize,
-	int nbins, int derivAperture, double winSigma, int histogramNormType, double L2HysThreshold, int gammaCorrection, int nlevels)
-{
-	return new cv::HOGDescriptor(winSize, blockSize, blockStride, cellSize, nbins, derivAperture, 
-		winSigma, histogramNormType, L2HysThreshold, gammaCorrection != 0, nlevels);
-}
+// CVAPI(cv::HOGDescriptor*) objdetect_HOGDescriptor_new2(CvSize winSize, CvSize blockSize, CvSize blockStride, CvSize cellSize,
+// 	int nbins, int derivAperture, double winSigma, int histogramNormType, double L2HysThreshold, int gammaCorrection, int nlevels)
+// {
+// 	return new cv::HOGDescriptor(winSize, blockSize, blockStride, cellSize, nbins, derivAperture, 
+// 		winSigma, histogramNormType, L2HysThreshold, gammaCorrection != 0, nlevels);
+// }
 CVAPI(cv::HOGDescriptor*) objdetect_HOGDescriptor_new3(const char *filename)
 {
 	std::string filename_str(filename);
@@ -148,10 +148,10 @@ CVAPI(void) objdetect_HOGDescriptor_detectMultiScaleROI(cv::HOGDescriptor *obj, 
 }
 
 // read/parse Dalal's alt model file
-CVAPI(void) objdetect_HOGDescriptor_readALTModel(cv::HOGDescriptor *obj, const char *modelfile)
-{
-	obj->readALTModel(modelfile);
-}
+// CVAPI(void) objdetect_HOGDescriptor_readALTModel(cv::HOGDescriptor *obj, const char *modelfile)
+// {
+// 	obj->readALTModel(modelfile);
+// }
 CVAPI(void) objdetect_HOGDescriptor_groupRectangles(cv::HOGDescriptor *obj,
 	std::vector<cv::Rect> *rectList, std::vector<double> *weights, int groupThreshold, double eps)
 {
@@ -234,10 +234,10 @@ CVAPI(void) objdetect_HOGDescriptor_winSigma_set(cv::HOGDescriptor *obj, double 
 {
 	obj->winSigma = value;
 }
-CVAPI(void) objdetect_HOGDescriptor_histogramNormType_set(cv::HOGDescriptor *obj, int value)
-{
-	obj->histogramNormType = value;
-}
+// CVAPI(void) objdetect_HOGDescriptor_histogramNormType_set(cv::HOGDescriptor *obj, int value)
+// {
+// 	obj->histogramNormType = value;
+// }
 CVAPI(void) objdetect_HOGDescriptor_L2HysThreshold_set(cv::HOGDescriptor *obj, double value)
 {
 	obj->L2HysThreshold = value;
