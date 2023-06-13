@@ -299,7 +299,7 @@ echo ""
 # *****************************************
 # SharpExtern
 # *****************************************
-sharpextern_options="-Wno-deprecated -DCMAKE_TRY_COMPILE_PLATFORM_VARIABLES=CMAKE_WARN_DEPRECATED -DCMAKE_PREFIX_PATH=\"$TEMP/$platform/$arch/libs/opencv-4.7.0\""
+sharpextern_options="-Wno-deprecated -DCMAKE_TRY_COMPILE_PLATFORM_VARIABLES=CMAKE_WARN_DEPRECATED -DCMAKE_PREFIX_PATH=\"$TEMP/$platform/$arch/libs/opencv-$version_opencv\""
 
 suffix=""
 if [ $type == "trial" ]; then

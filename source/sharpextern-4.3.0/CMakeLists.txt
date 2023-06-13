@@ -30,19 +30,6 @@ if (BUILD_WITH_STATIC_CRT)
 	ucm_set_runtime("STATIC")
 endif()
 
-
-message("${CMAKE_PREFIX_PATH}")
-message("${CMAKE_PREFIX_PATH}")
-message("${CMAKE_PREFIX_PATH}")
-message("${CMAKE_PREFIX_PATH}")
-message("${CMAKE_PREFIX_PATH}")
-message("${CMAKE_PREFIX_PATH}")
-set(OpenCV_DIR "${CMAKE_PREFIX_PATH}/sdk/native/jni")
-
-# OpenCV is a bit specific: it has different output folders for Windows, Android and iOS/Mac, so we have to "hint" all three
-find_package(OpenCV REQUIRED PATHS "${CMAKE_PREFIX_PATH}" "${CMAKE_PREFIX_PATH}/*/Shared/OpenCV" "${CMAKE_PREFIX_PATH}/*/sdk/native/jni" NO_DEFAULT_PATH )
-TestLibraryPath(${OpenCV_INSTALL_PATH} "OpenCV")
-
 # SOURCE FILES
 set(OPENCVSHARP_FILES 
 	core.cpp
@@ -52,6 +39,27 @@ set(OPENCVSHARP_FILES
 	objdetect.cpp
 	std_string.cpp
 )
+
+if(ANDROID)
+	message("${CMAKE_PREFIX_PATH}")
+	message("${CMAKE_PREFIX_PATH}")
+	message("${CMAKE_PREFIX_PATH}")
+	message("${CMAKE_PREFIX_PATH}")
+	message("${CMAKE_PREFIX_PATH}")
+	message("${CMAKE_PREFIX_PATH}")
+	set(OpenCV_DIR "${CMAKE_PREFIX_PATH}/sdk/native/jni")
+
+	# OpenCV is a bit specific: it has different output folders for Windows, Android and iOS/Mac, so we have to "hint" all three
+	find_package(OpenCV REQUIRED PATHS "${CMAKE_PREFIX_PATH}" "${CMAKE_PREFIX_PATH}/*/Shared/OpenCV" "${CMAKE_PREFIX_PATH}/*/sdk/native/jni" NO_DEFAULT_PATH )
+	TestLibraryPath(${OpenCV_INSTALL_PATH} "OpenCV")
+else()
+	set(OpenCV_STATIC ON)
+	message("${CMAKE_PREFIX_PATH}")
+	message("${CMAKE_PREFIX_PATH}")
+	message("${CMAKE_PREFIX_PATH}")
+	set(OpenCV_DIR "${CMAKE_PREFIX_PATH}")
+	find_package(OpenCV REQUIRED)
+endif()
 
 # file(GLOB OPENCVSHARP_FILES *.cpp)
 

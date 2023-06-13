@@ -91,8 +91,6 @@ while [ $index -lt $argsCount ]; do
     esac
 done
 
-targets[0]=0
-
 if [ -z "$ndkpath" ]; then
 	root=$(dirname $BASEDIR)
 	defndk="$root/android/ndk-r10e"
@@ -170,9 +168,9 @@ OUTDIR="$BIN/OpenCvSharpExtern-$version_plugin/$type"
 # *****************************************
 if [ ${targets[0]} -eq 1 ]; then
 	# x86
-	required bash ./scripts/build-plugin.sh --type "$type" --platform windows --arch x86 --makesys "Visual Studio 16 2019" --version $version_plugin $rebuild_option $wrapper_only
+	# required bash ./scripts/build-plugin.sh --type "$type" --platform windows --arch x86 --makesys "Visual Studio 16 2019" --version $version_plugin $rebuild_option $wrapper_only
 	# x64
-	required bash ./scripts/build-plugin.sh --type "$type" --platform windows --arch x86_64 --makesys "Visual Studio 16 2019 Win64" --version $version_plugin $rebuild_option $wrapper_only
+	required bash ./scripts/build-plugin.sh --type "$type" --platform windows --arch x86_64 --makesys "Visual Studio 17 2022" --version $version_plugin $rebuild_option $wrapper_only
 fi
 
 # *****************************************

@@ -44,6 +44,8 @@ set(OPENCVSHARP_FILES
 	imgproc.cpp
 	std_vector.cpp
 	utils.cpp
+	objdetect.cpp
+	std_string.cpp
 )
 
 # file(GLOB OPENCVSHARP_FILES *.cpp)

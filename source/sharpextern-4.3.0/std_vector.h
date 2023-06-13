@@ -889,58 +889,58 @@ CVAPI(void) vector_Mat_delete(std::vector<cv::Mat>* vector)
 }
 #pragma endregion
 
-#pragma region cv::ml::DTrees::Node
-CVAPI(std::vector<cv::ml::DTrees::Node>*) vector_DTrees_Node_new1()
-{
-    return new std::vector<cv::ml::DTrees::Node>;
-}
-CVAPI(std::vector<cv::ml::DTrees::Node>*) vector_DTrees_Node_new2(size_t size)
-{
-    return new std::vector<cv::ml::DTrees::Node>(size);
-}
-CVAPI(std::vector<cv::ml::DTrees::Node>*) vector_DTrees_Node_new3(cv::ml::DTrees::Node *data, size_t dataLength)
-{
-    return new std::vector<cv::ml::DTrees::Node>(data, data + dataLength);
-}
-CVAPI(size_t) vector_DTrees_Node_getSize(std::vector<cv::ml::DTrees::Node> *vector)
-{
-    return vector->size();
-}
-CVAPI(cv::ml::DTrees::Node*) vector_DTrees_Node_getPointer(std::vector<cv::ml::DTrees::Node> *vector)
-{
-    return &(vector->at(0));
-}
-CVAPI(void) vector_DTrees_Node_delete(std::vector<cv::ml::DTrees::Node> *vector)
-{
-    delete vector;
-}
-#pragma endregion
+// #pragma region cv::ml::DTrees::Node
+// CVAPI(std::vector<cv::ml::DTrees::Node>*) vector_DTrees_Node_new1()
+// {
+//     return new std::vector<cv::ml::DTrees::Node>;
+// }
+// CVAPI(std::vector<cv::ml::DTrees::Node>*) vector_DTrees_Node_new2(size_t size)
+// {
+//     return new std::vector<cv::ml::DTrees::Node>(size);
+// }
+// CVAPI(std::vector<cv::ml::DTrees::Node>*) vector_DTrees_Node_new3(cv::ml::DTrees::Node *data, size_t dataLength)
+// {
+//     return new std::vector<cv::ml::DTrees::Node>(data, data + dataLength);
+// }
+// CVAPI(size_t) vector_DTrees_Node_getSize(std::vector<cv::ml::DTrees::Node> *vector)
+// {
+//     return vector->size();
+// }
+// CVAPI(cv::ml::DTrees::Node*) vector_DTrees_Node_getPointer(std::vector<cv::ml::DTrees::Node> *vector)
+// {
+//     return &(vector->at(0));
+// }
+// CVAPI(void) vector_DTrees_Node_delete(std::vector<cv::ml::DTrees::Node> *vector)
+// {
+//     delete vector;
+// }
+// #pragma endregion
 
-#pragma region cv::ml::DTrees::Split
-CVAPI(std::vector<cv::ml::DTrees::Split>*) vector_DTrees_Split_new1()
-{
-    return new std::vector<cv::ml::DTrees::Split>;
-}
-CVAPI(std::vector<cv::ml::DTrees::Split>*) vector_DTrees_Split_new2(size_t size)
-{
-    return new std::vector<cv::ml::DTrees::Split>(size);
-}
-CVAPI(std::vector<cv::ml::DTrees::Split>*) vector_DTrees_Split_new3(cv::ml::DTrees::Split *data, size_t dataLength)
-{
-    return new std::vector<cv::ml::DTrees::Split>(data, data + dataLength);
-}
-CVAPI(size_t) vector_DTrees_Split_getSize(std::vector<cv::ml::DTrees::Split> *vector)
-{
-    return vector->size();
-}
-CVAPI(cv::ml::DTrees::Split*) vector_DTrees_Split_getPointer(std::vector<cv::ml::DTrees::Split> *vector)
-{
-    return &(vector->at(0));
-}
-CVAPI(void) vector_DTrees_Split_delete(std::vector<cv::ml::DTrees::Split> *vector)
-{
-    delete vector;
-}
-#pragma endregion
+// #pragma region cv::ml::DTrees::Split
+// CVAPI(std::vector<cv::ml::DTrees::Split>*) vector_DTrees_Split_new1()
+// {
+//     return new std::vector<cv::ml::DTrees::Split>;
+// }
+// CVAPI(std::vector<cv::ml::DTrees::Split>*) vector_DTrees_Split_new2(size_t size)
+// {
+//     return new std::vector<cv::ml::DTrees::Split>(size);
+// }
+// CVAPI(std::vector<cv::ml::DTrees::Split>*) vector_DTrees_Split_new3(cv::ml::DTrees::Split *data, size_t dataLength)
+// {
+//     return new std::vector<cv::ml::DTrees::Split>(data, data + dataLength);
+// }
+// CVAPI(size_t) vector_DTrees_Split_getSize(std::vector<cv::ml::DTrees::Split> *vector)
+// {
+//     return vector->size();
+// }
+// CVAPI(cv::ml::DTrees::Split*) vector_DTrees_Split_getPointer(std::vector<cv::ml::DTrees::Split> *vector)
+// {
+//     return &(vector->at(0));
+// }
+// CVAPI(void) vector_DTrees_Split_delete(std::vector<cv::ml::DTrees::Split> *vector)
+// {
+//     delete vector;
+// }
+// #pragma endregion
 
 #endif

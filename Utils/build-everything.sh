@@ -39,8 +39,8 @@ while [ $index -lt $argsCount ]; do
 done
 
 # full version
-required bash ./build-all-platforms.sh --type full  $version $ndkpath
+required bash ./build-all-platforms.sh --type full  $version $ndkpath --no-windows
 # trial
-required bash ./build-all-platforms.sh --type trial $version $ndkpath --wrapper_only
+required bash ./build-all-platforms.sh --type trial $version $ndkpath --no-windows --wrapper_only
 # force binary symlinks
 required bash ./make-binary-symlinks.sh $version --force

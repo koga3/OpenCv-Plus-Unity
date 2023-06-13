@@ -18,4 +18,7 @@ To run it in Unity Editor or Android you have to prebuild the libraries Yourself
 
 > utils/build-all-platforms.sh --type full --version 2.1 --ndkpath "C:/msys64/home/s-koga/appdata/Android/Sdk/ndk/23.1.7779620" --no-android
 
+> Utils/build-everything.sh --version 4.3 --ndkpath "C:/msys64/home/s-koga/appdata/Android/Sdk/ndk/23.1.7779620"
 
+# 確認
+> readelf -Ws bin/OpenCvSharpExtern-2.1/full/android/arm64-v8a/libOpenCvSharpExtern.so > result.txt
