@@ -106,7 +106,7 @@ else
 	fi
 fi
 
-VER_FILE="$SCRIPTDIR/versions/$version_plugin.txt"
+VER_FILE="$SCRIPTDIR/Versions/$version_plugin.txt"
 if [ -z "$version_plugin" ]; then
     echo "No 'version' argument supplied, must be valid plugin version number"
     exit 1
