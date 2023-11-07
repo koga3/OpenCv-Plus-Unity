@@ -13,20 +13,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    # - name: Setup Android NDK
-    #   uses: nttld/setup-ndk@v1
-    #   id: setup-ndk
-    #   with:
-    #     ndk-version: r21e
-    #     add-to-path: false
-    # - name: check the dir
-    #   run: |
-    #         cd $ANDROID_NDK_HOME
-    #         ls
-    #   env:
-    #     ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+    - name: Setup Android NDK
+      uses: nttld/setup-ndk@v1
+      id: setup-ndk
+      with:
+        ndk-version: r21e
+        add-to-path: false
+        local-cache: true
+    - name: check the dir
+      run: |
+            cd $ANDROID_NDK_HOME
+            ls
+      env:
+        ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
       
     - name: make
-      run: bash Utils/build-everything.sh --version 1.0
-      # env:
-      #   ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+      run: bash Utils/build-all-platforms.sh --type full --version 2.1 --ndkpath {$ANDROID_NDK_HOME}
+      env:
+        ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
