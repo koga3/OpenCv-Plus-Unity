@@ -28,6 +28,6 @@ jobs:
         ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
       
     - name: make
-      run: bash Utils/build-all-platforms.sh --type full --version 2.1 --ndkpath {$ANDROID_NDK_HOME}
+      run: bash Utils/build-all-platforms.sh --type full --version 2.1 --ndkpath {$ANDROID_NDK_HOME} --no-android
       env:
         ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
