@@ -1,4 +1,4 @@
-name: build unity plugin
+name: Build unity plugin
 
 on:
   push:
