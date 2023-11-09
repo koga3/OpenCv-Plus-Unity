@@ -91,6 +91,8 @@ if [ -z "$makesystem" ]; then
 	exit 1
 fi
 
+echo "!++++++++++++Entering OpenCV Compile Mode! ++++++++++++++++++!"
+
 # prepare
 # make $PWD command refer to absolute roots
 cd $(dirname "$0")

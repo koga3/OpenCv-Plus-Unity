@@ -120,7 +120,7 @@ fi
 # Aux function
 compile_library()
 {
-    echo "Start to compile OpenCV Lib!"
+    echo "!+++++++++++++++++++++++Start to compile OpenCV Lib!++++++++++++++++++++++++++++!"
     local fname=$1
     local fver=$2
 	local suffix=$3
@@ -128,11 +128,13 @@ compile_library()
 	local fextra=$5
     local foutval=$6
     local foutmarker=$(printf "%s_%s_%s_OUTPUD_DIR=" "$fname" "$platform" "$arch")
-    compile_cmd="bash build-library.sh --name $fname --platform $platform --arch $arch --makesys \"$makesystem\" --version $fver --options \"$fopt\" $rebuild_option $fextra"
+    compile_cmd="bash build-library.sh --name $fname --platform $platform --arch $arch --makesys $makesystem --version $fver --options $fopt $rebuild_option $fextra"
     
 	if [ ! -z "$suffix" ]; then
 		compile_cmd="$compile_cmd --suffix $suffix"
 	fi
+
+    echo "Compile command: {$compile_cmd}"
 
     # another damn hint to print to console and capture result
     local console=$(eval "$compile_cmd")
@@ -154,6 +156,7 @@ compile_library()
 # OpenCV
 # *****************************************
 CONTRIB_DIR="$SOURCE/contrib-$version_opencv/modules"
+echo "Using OpenCV Contrib Dir: $CONTRIB_DIR"
 
 # macOS/i386 does not compile with LAPACK (Apple Accelerator framework)
 if [ "$platform" == "macos" ]; then
@@ -219,9 +222,9 @@ opencv_dependencies="
     -DWITH_JPEG2000=OFF \
     -DWITH_JPEG_2000=OFF \
     -DWITH_IMGCODEC_JPEG2000=OFF \
-    -DWITH_IMGCODEC_JPEG_2000=OFF \
-    "
-opencv_modules="
+    -DWITH_IMGCODEC_JPEG_2000=OFF "
+
+opencv_modules="\
     -DBUILD_opencv_hdf=OFF \
     -DBUILD_OPENCV_JAVA=OFF \
     -DBUILD_OPENCV_PYTHON=OFF \
@@ -248,8 +251,7 @@ opencv_modules="
     -DBUILD_opencv_features2d=OFF \
     -DBUILD_opencv_3rdparty=OFF \
     -DBUILD_opencv_gapi=OFF"
-opencv_options="$opencv_dependencies $opencv_modules $opencv_issue 
-    -DBUILD_EXAMPLES=OFF \
+opencv_options="$opencv_dependencies $opencv_modules $opencv_issue -DBUILD_EXAMPLES=OFF \
     -DBUILD_SHARED_LIBS=OFF \
     -DBUILD_WITH_DEBUG_INFO=OFF \
     -DBUILD_EXAMPLES=OFF \
@@ -259,11 +261,11 @@ opencv_options="$opencv_dependencies $opencv_modules $opencv_issue
     -DBUILD_ANDROID_EXAMPLES=OFF \
     -DINSTALL_ANDROID_EXAMPLES=OFF \
     -Wno-deprecated"
-# -DCMAKE_TRY_COMPILE_PLATFORM_VARIABLES=CMAKE_WARN_DEPRECATED \"
-opencv_android="
-    -DBUILD_JAVA=OFF \
-    -DCMAKE_TOOLCHAIN_FILE=\home/s-koga/appdata/Android/Sdk/ndk/23.1.7779620/build/cmake/android.toolchain.cmake \
-    -DANDROID_NDK=\home/s-koga/appdata/Android/Sdk/ndk/23.1.7779620"
+# # -DCMAKE_TRY_COMPILE_PLATFORM_VARIABLES=CMAKE_WARN_DEPRECATED \"
+# opencv_android="
+#     -DBUILD_JAVA=OFF \
+#     -DCMAKE_TOOLCHAIN_FILE=\home/s-koga/appdata/Android/Sdk/ndk/23.1.7779620/build/cmake/android.toolchain.cmake \
+#     -DANDROID_NDK=\home/s-koga/appdata/Android/Sdk/ndk/23.1.7779620"
 
 if [ "$platform" == "android" ]; then
     opencv_options="$opencv_options $opencv_android"

@@ -131,7 +131,7 @@ elif [[ "$OSTYPE" == "msys" ]]; then
 	nixmakesys="Ninja"
     targets[2]=0
 	targets[3]=0
-
+    targets[0]=1
 	echo "Host: Windows MSYS"
 fi
 
@@ -170,9 +170,9 @@ OUTDIR="$BIN/OpenCvSharpExtern-$version_plugin/$type"
 # *****************************************
 if [ ${targets[0]} -eq 1 ]; then
 	# x86
-	required bash ./scripts/build-plugin.sh --type "$type" --platform windows --arch x86 --makesys "Visual Studio 16 2019" --version $version_plugin $rebuild_option $wrapper_only
+	required bash ./scripts/build-plugin.sh --type "$type" --platform windows --arch x86 --makesys "Ninja" --version $version_plugin $rebuild_option $wrapper_only
 	# x64
-	required bash ./scripts/build-plugin.sh --type "$type" --platform windows --arch x86_64 --makesys "Visual Studio 16 2019 Win64" --version $version_plugin $rebuild_option $wrapper_only
+	required bash ./scripts/build-plugin.sh --type "$type" --platform windows --arch x86_64 --makesys "Ninja" --version $version_plugin $rebuild_option $wrapper_only
 fi
 
 # *****************************************

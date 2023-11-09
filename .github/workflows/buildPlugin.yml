@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, macOS-latest]
+        os: [windows-latest]
         
     steps:
     - uses: actions/checkout@v2
@@ -30,6 +30,6 @@ jobs:
         # ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
       
     - name: make
-      run: bash Utils/build-all-platforms.sh --type full --version 2.1 --no-android
+      run: bash Utils/build-all-platforms.sh  --type full --version 2.1  --no-android --no-ios --no-macos
       # env:
       #   ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
