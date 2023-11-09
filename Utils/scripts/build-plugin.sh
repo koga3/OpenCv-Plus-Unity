@@ -129,13 +129,13 @@ compile_library()
     local foutval=$6
     local foutmarker=$(printf "%s_%s_%s_OUTPUD_DIR=" "$fname" "$platform" "$arch")
     compile_cmd="bash build-library.sh --name $fname --platform $platform --arch $arch --makesys \"$makesystem\" --version $fver --options \"$fopt\" $rebuild_option $fextra"
-
+    
 	if [ ! -z "$suffix" ]; then
 		compile_cmd="$compile_cmd --suffix $suffix"
 	fi
 
     # another damn hint to print to console and capture result
-    local console=$(eval "$compile_cmd" 2>&1 |tee /dev/tty)
+    local console=$(eval "$compile_cmd")
     local exit_code=$?
 
     # check for error
