@@ -35,7 +35,7 @@ opencv/opencv-*/modules/python/src2/hdr_parser.pyc
 opencv/opencv-*/3rdparty/ffmpeg/ffmpeg_version.cmake
 opencv/opencv-*/3rdparty/ffmpeg/opencv_ffmpeg.dll
 opencv/opencv-*/3rdparty/ffmpeg/opencv_ffmpeg_64.dll
-source/opencv-*/3rdparty/ippicv/downloads
+# source/opencv-*/3rdparty/ippicv/downloads
 
 # appeared after building opencv with platform/osx/build_framework.py
 opencv/opencv-*/platforms/ios/build_framework.pyc
@@ -46,10 +46,10 @@ CMakeFiles/*
 Unity/OpenCV+Unity.Trial/Assets/OpenCV+Unity/Plugins/
 memo
 
-source/opencv-*/3rdparty/lib/*
-source/opencv-*/3rdparty/ffmpeg/opencv_ffmpeg*
-source/opencv-*/doc/*
-source/opencv-*/samples/*
-source/opencv-*/android/android-opencv/res/*
-source/opencv-*/cmake/*
-source/opencv-*/data/*
+# source/opencv-*/3rdparty/lib/*
+# source/opencv-*/3rdparty/ffmpeg/opencv_ffmpeg*
+# source/opencv-*/doc/*
+# source/opencv-*/samples/*
+# source/opencv-*/android/android-opencv/res/*
+# source/opencv-*/cmake/*
+# source/opencv-*/data/*
