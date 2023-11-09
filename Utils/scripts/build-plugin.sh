@@ -120,6 +120,7 @@ fi
 # Aux function
 compile_library()
 {
+    echo "Start to compile OpenCV Lib!"
     local fname=$1
     local fver=$2
 	local suffix=$3
