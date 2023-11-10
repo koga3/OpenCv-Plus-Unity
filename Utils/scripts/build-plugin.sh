@@ -128,18 +128,25 @@ compile_library()
 	local fextra=$5
     local foutval=$6
     local foutmarker=$(printf "%s_%s_%s_OUTPUD_DIR=" "$fname" "$platform" "$arch")
-    compile_cmd="bash build-library.sh --name $fname --platform $platform --arch $arch --makesys $makesystem --version $fver --options $fopt $rebuild_option $fextra"
+    compile_cmd="bash build-library.sh --name $fname --version $fver --platform $platform --arch $arch --makesys \"$makesystem\" --options $fopt $rebuild_option $fextra"
     
 	if [ ! -z "$suffix" ]; then
 		compile_cmd="$compile_cmd --suffix $suffix"
 	fi
 
-    echo "Compile command: {$compile_cmd}"
+    # echo "Compile command: {$compile_cmd}"
+    # Print out some info
+    echo "name: $fname"
+    echo "version: $fver"
+    echo "platform: $platform"
+    echo "arch: $arch"
+    echo "generator: $makesystem"
 
     # another damn hint to print to console and capture result
-    local console=$(eval "$compile_cmd")
+    $(mkdir -p $TEMP/$platform/$arch/outputs)
+    local console=$(eval "$compile_cmd" |tee $TEMP/$platform/$arch/outputs/$fname)
     local exit_code=$?
-
+    
     # check for error
     if [ $exit_code -ne 0 ]; then
         echo "FATAL ERROR: Failed to compile { lib = $fname, platform = $platform, arch = $arch }"
@@ -174,8 +181,7 @@ fi
 
 # Those modules can be turned off should we have no need for video/capture support
 # -DWITH_AVFOUNDATION=OFF -DWITH_DSHOW=OFF -DWITH_VFW=OFF -DWITH_FFMPEG=OFF
-opencv_dependencies="
-    -DWITH_VTK=OFF \
+opencv_dependencies=" -DWITH_VTK=OFF \
     -DWITH_1394=OFF \
     -DWITH_GSTREAMER=OFF \
     -DWITH_V4L=OFF \
