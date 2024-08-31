@@ -16,6 +16,6 @@ Right now you can use original [documentation notes](https://github.com/Collegiu
 To run it in Unity Editor or Android you have to prebuild the libraries Yourself
 
 
-> utils/build-all-platforms.sh --type full --version 2.1 --ndkpath "C:/msys64/home/s-koga/appdata/Android/Sdk/ndk/23.1.7779620" --no-android
+> utils/build-all-platforms.sh --type full --version 2.1 --ndkpath "C:/msys64/[root_path]/appdata/Android/Sdk/ndk/23.1.7779620" --no-android
 
 
